@@ -46,22 +46,23 @@ colorscheme PaperColor
 hi Normal ctermbg=NONE
 
 if executable('rg')
-	   let g:rg_derive_root='true'
-   endif
+   let g:rg_derive_root='true'
+endif
 
-   let g:netrw_browser_split=2
-   let g:netrw_banner=0
-   let g:netrw_winsize=25
-   let mapleader=" "
+let g:netrw_browser_split=2
+let g:netrw_banner=0
+let g:netrw_winsize=25
+let mapleader=" "
+let NERDTreeShowHidden=1
 
-   nnoremap <leader>h :wincmd h<CR>
-   nnoremap <leader>j :wincmd j<CR>
-   nnoremap <leader>k :wincmd k<CR>
-   nnoremap <leader>l :wincmd l<CR>
-   nnoremap <leader>u :UndotreeShow<CR>
-   nnoremap <leader>pv :NERDTree<CR>
-   nnoremap <leader>ps :Rg<SPACE>
-   nnoremap <leader>n :bn<CR>
-   nnoremap <leader>x :wincmd x<CR>
-   nnoremap <leader>v :wincmd v<CR>
-   nnoremap <silent> <C-p> :Files <CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :NERDTree<CR>
+nnoremap <leader>ps :Rg<SPACE>
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>x :wincmd x<CR>
+nnoremap <leader>v :wincmd v<CR>
+nnoremap <silent> <C-p> :Files <CR>
