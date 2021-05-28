@@ -21,14 +21,29 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-clojure-static'
 Plug 'srcery-colors/srcery-vim'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'Valloric/YouCompleteMe'
+Plug 'dracula/vim',{'as':'dracula'}
 
 call plug#end()
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+   augroup WSLYank
+      autocmd!
+      autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+   augroup END
+endif
 
 let g:PaperColor_Theme_Options = {
   \   'theme': {
