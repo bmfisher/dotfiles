@@ -70,6 +70,7 @@ let g:netrw_winsize=25
 let mapleader=" "
 let NERDTreeShowHidden=1
 
+nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -80,4 +81,6 @@ nnoremap <leader>ps :Rg<SPACE>
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>x :wincmd x<CR>
 nnoremap <leader>v :wincmd v<CR>
+nnoremap <leader>s :wincmd s<CR>
 nnoremap <silent> <C-p> :Files <CR>
+nnoremap <silent> <C-f> :Ag <CR>
