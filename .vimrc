@@ -1,8 +1,8 @@
 syntax on
 
-set noerrorbells
-set tabstop=3 softtabstop=3
-set shiftwidth=3
+set noerrorbells 
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -33,6 +33,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Valloric/YouCompleteMe'
 Plug 'dracula/vim',{'as':'dracula'}
+Plug 'goerz/jupytext.vim'
 
 call plug#end()
 
@@ -47,7 +48,7 @@ endif
 
 let g:PaperColor_Theme_Options = {
   \   'theme': {
-  \     'default': {
+  \     'default': { 
   \       'transparent_background': 1,
   \       'override' : {
   \         'linenumber_fg' : ['', '069']
@@ -56,9 +57,10 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 set background=dark
-colorscheme PaperColor
+colorscheme PaperColor 
 
 hi Normal ctermbg=NONE
+hi Visual ctermbg=LightGreen
 
 if executable('rg')
    let g:rg_derive_root='true'
