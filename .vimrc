@@ -15,6 +15,7 @@ set undofile
 set incsearch
 set relativenumber
 set hidden
+set guicursor=
 
 call plug#begin('~/.vim/plugged')
 
