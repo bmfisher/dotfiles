@@ -29,6 +29,9 @@ Plug 'mbbill/undotree'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim',{'as':'dracula'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -81,6 +84,12 @@ nnoremap <leader>v :wincmd v<CR>
 nnoremap <leader>s :wincmd s<CR>
 nnoremap <silent> <C-p> :Files <CR>
 nnoremap <silent> <C-f> :Ag <CR>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Cursor in terminal
 " https://vim.fandom.com/wiki/Configuring_the_cursor
