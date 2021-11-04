@@ -1,0 +1,8 @@
+[user]
+	name = Brandon Fisher
+[commit]
+	gpgsign = true
+[alias]
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	cam = "!cam() { git commit -a -m \"$1\"; }; cam"
+  pso = "!pso() { git rev-parse --abbrev-ref HEAD | xargs git push --set-upstream origin; }; pso"
