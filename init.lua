@@ -1,6 +1,4 @@
--- Migrating vimrc to init.lua
---
-
+-- Vim options
 vim.opt.errorbells = false
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -12,9 +10,56 @@ vim.opt.wrap = false
 vim.opt.smartcase = true
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = '~/.vim/undodir'
+vim.opt.undodir = '/Users/brandonfisher/.vim/undodir'
 vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.relativenumber = true
 vim.opt.hidden = true
 vim.opt.guicursor = ''
+vim.opt.clipboard = 'unnamed'
+
+-- Globals
+vim.g.mapleader = " "
+vim.g.netrw_browser_split = 2
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.g.NERDTreeShowHidden = 1
+
+-- Keymaps
+vim.api.nvim_set_keymap("n", "<leader>h", ":wincmd h<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>j", ":wincmd j<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>k", ":wincmd k<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>l", ":wincmd l<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>pv", ":NERDTree<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>n", ":bn<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>x", ":wincmd x<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>v", ":wincmd v<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>s", ":wincmd s<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>hl", ":noh<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fp", ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ff", ":lua require'telescope.builtin'.live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-uu' }}<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fa", ":Files <CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fz", ":Ag <CR>", { noremap = true })
+
+
+
+-- Install plugins
+vim.cmd([[
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/nerdtree'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+call plug#end()
+]])
+
+-- Colorscheme
+vim.cmd([[
+colorscheme Papercolor
+hi Visual ctermbg=LightGreen
+]])
