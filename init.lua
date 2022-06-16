@@ -67,6 +67,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
 
 call plug#end()
 ]])
@@ -74,6 +76,9 @@ call plug#end()
 require('my-treesitter')
 require('my-lsp')
 require('my-nvim-cmp')
+require('my-dap')
+
+
 
 -- Colorscheme
 vim.cmd([[
