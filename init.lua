@@ -29,6 +29,10 @@ vim.opt.scrolloff = 10
 vim.opt.completeopt={"menu","menuone","noselect"}
 
 -- Keymaps
+vim.api.nvim_set_keymap("n", "<leader>y", ":vertical resize -5<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>u", ":resize -5<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>i", ":resize +5<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>o", ":vertical resize +5<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>h", ":wincmd h<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>j", ":wincmd j<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>k", ":wincmd k<CR>", { noremap = true })

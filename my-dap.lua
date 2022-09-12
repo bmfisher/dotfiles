@@ -1,21 +1,29 @@
-require('dap-python').setup('~/dev/lb_venv/bin/python')
+--require('dap-python').setup('~/dev/lb_venv/bin/python')
 local dap = require('dap')
   dap.adapters.python = {
-    type = 'server';
-    host = 'localhost';
-    port = 5678;
-    pathMappings = {{localRoot = "."; remoteRoot = "/app"}};
+    type = 'executable';
+    command = '/Users/brandonfisher/dev/lb_venv/bin/python';
+    cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
+    args = { '-m', 'debugpy.adapter' };
   }
   dap.configurations.python = {
-    type = 'python';
-    request = 'attach';
-    name = 'python debug configuration';
-    connect = function()
-        local host = vim.fn.input('Host [127.0.0.1]: ')
-        host = host ~= '' and host or '127.0.0.1'
-        local port = tonumber(vim.fn.input('Port [5678]: ')) or 5678
-        return { host = host, port = port }
-      end;
+    {
+      type = 'python';
+      request = 'attach';
+      name = 'python debug configuration';
+      host = '127.0.0.1';
+      port = 5678;
+      pathMappings = {
+        { localRoot = '.', remoteRoot = '/app' }
+      }
+  --    connect = function()
+  --        return { host = '127.0.0.1', port = '5678' }
+  --        local host = vim.fn.input('Host [127.0.0.1]: ')
+  --        host = host ~= '' and host or '127.0.0.1'
+  --        local port = tonumber(vim.fn.input('Port [5678]: ')) or 5678
+  --        return { host = host, port = port }
+  --      end;
+    },
   }
 
 
