@@ -2,29 +2,26 @@
 local dap = require('dap')
   dap.adapters.python = {
     type = 'executable';
-    command = '/Users/brandonfisher/dev/lb_venv/bin/python';
     cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
+    command = '/Users/brandonfisher/dev/lb_venv/bin/python';
     args = { '-m', 'debugpy.adapter' };
   }
   dap.configurations.python = {
     {
       type = 'python';
-      request = 'attach';
+      request = 'launch';
       name = 'python debug configuration';
-      host = '127.0.0.1';
-      port = 5678;
-      pathMappings = {
-        { localRoot = '.', remoteRoot = '/app' }
-      }
-  --    connect = function()
-  --        return { host = '127.0.0.1', port = '5678' }
-  --        local host = vim.fn.input('Host [127.0.0.1]: ')
-  --        host = host ~= '' and host or '127.0.0.1'
-  --        local port = tonumber(vim.fn.input('Port [5678]: ')) or 5678
-  --        return { host = host, port = port }
-  --      end;
+      console = 'integratedTerminal';
+      python = '/Users/brandonfisher/dev/lb_venv/bin/python';
+      cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
+      program = vim.fn.getcwd() .. '/manage.py';
+      args = { 'runserver', '--settings=etsadmin.settings.local', '--noreload' };
+      logToFile = 'true';
+      stopOnEntry = 'true';
+      justMyCode = 'false';
     },
   }
+  dap.defaults.fallback.focus_terminal = true
 
 
 local opts = { noremap = true, silent = true }
