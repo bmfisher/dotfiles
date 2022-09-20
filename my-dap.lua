@@ -10,12 +10,23 @@ local dap = require('dap')
     {
       type = 'python';
       request = 'launch';
-      name = 'python debug configuration';
+      name = 'python debug server';
       console = 'integratedTerminal';
       python = '/Users/brandonfisher/dev/lb_venv/bin/python';
       cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
       program = vim.fn.getcwd() .. '/manage.py';
       args = { 'runserver', '--settings=etsadmin.settings.local', '--noreload' };
+      justMyCode = 'false';
+    },
+    {
+      type = 'python';
+      request = 'launch';
+      name = 'python debug tests';
+      console = 'integratedTerminal';
+      python = '/Users/brandonfisher/dev/lb_venv/bin/python';
+      cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
+      program = vim.fn.getcwd() .. '/manage.py';
+      args = { 'test', 'sensors.test.test_utils', '--settings=etsadmin.settings.local' };
       justMyCode = 'false';
     },
   }

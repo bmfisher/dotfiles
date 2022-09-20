@@ -51,6 +51,10 @@ vim.api.nvim_set_keymap("n", "<leader>fz", ":Ag <CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>lt", ":set background=light<CR>:hi Visual ctermbg=darkblue<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>dk", ":set background=dark<CR>:hi Visual ctermbg=LightGreen<CR>", { noremap = true })
 
+vim.cmd([[
+:tnoremap <Esc> <C-\><C-n>
+]])
+
 
 
 -- Install plugins
