@@ -26,7 +26,9 @@ local dap = require('dap')
       python = '/Users/brandonfisher/dev/lb_venv/bin/python';
       cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
       program = vim.fn.getcwd() .. '/manage.py';
-      args = { 'test', 'sensors.test.test_utils', '--settings=etsadmin.settings.local' };
+      args = function()
+        local module = vim.ui.input({ prompt = 'Enter the module to test: ' }, function(input) vim.g.test_module = tostring(input) end)
+        return {'test', vim.g.test_module, '--settings=etsadmin.settings.local'} end;
       justMyCode = 'false';
     },
   }
