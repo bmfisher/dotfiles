@@ -52,6 +52,7 @@ vim.api.nvim_set_keymap("n", "<leader>lt", ":set background=light<CR>:hi Visual 
 vim.api.nvim_set_keymap("n", "<leader>dk", ":set background=dark<CR>:hi Visual ctermbg=LightGreen<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>e", ":lua require'telescope.builtin'.buffers()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>z", ":lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>t", ":e term://zsh<CR>", { noremap = true })
 
 vim.cmd([[
 :tnoremap <Esc> <C-\><C-n>
