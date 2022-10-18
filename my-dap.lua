@@ -30,9 +30,9 @@ local dap = require('dap')
         local module = vim.ui.input({ prompt = 'Enter the module to test: ' }, function(input) vim.g.test_module = tostring(input) end)
         test_module = vim.g.test_module
         if test_module == "all" then
-          test_args = {'test', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--parallel', '--keepdb'}
+          test_args = {'test', '--settings=etsadmin.settings.test', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--parallel', '--keepdb'}
         else
-          test_args = {'test', vim.g.test_module, '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--keepdb'}
+          test_args = {'test', vim.g.test_module, '--settings=etsadmin.settings.test', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--keepdb'}
         end
         return test_args
       end;
