@@ -27,6 +27,8 @@ vim.opt.guicursor = ''
 vim.opt.clipboard = 'unnamed'
 vim.opt.scrolloff = 10
 vim.opt.completeopt={"menu","menuone","noselect"}
+vim.opt.foldmethod = 'indent'
+vim.cmd([[:set foldlevel=99]])
 
 -- Keymaps
 vim.api.nvim_set_keymap("n", "<leader>y", ":vertical resize -5<CR>", { noremap = true })
@@ -53,6 +55,12 @@ vim.api.nvim_set_keymap("n", "<leader>dk", ":set background=dark<CR>:hi Visual c
 vim.api.nvim_set_keymap("n", "<leader>e", ":lua require'telescope.builtin'.buffers()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>z", ":lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>t", ":e term://zsh<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fo", ":foldopen!<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fc", ":foldclose<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>f1", ":set foldlevel=0<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>f2", ":set foldlevel=2<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>f3", ":set foldlevel=4<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>uf", ":set foldlevel=99<CR>", { noremap = true })
 
 vim.cmd([[
 :tnoremap <Esc> <C-\><C-n>
