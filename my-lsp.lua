@@ -33,26 +33,24 @@ local on_attach = function(client, bufnr)
 	-- buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 	buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 	buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-	buf_set_keymap('n', 'td', '<cmd>Telescope diagnostics<CR>', opts)
+	buf_set_keymap('n', 'td', "<cmd>lua require'telescope.builtin'.diagnostics({bufnr=0})<CR>", opts)
 	-- buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format( { async = True } )<CR>", opts)
-	buf_set_keymap("n", "<leader>w", "<cmd>lua vim.lsp.buf.format( { async = False } )<CR><cmd>w<CR>", opts)
+	-- buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format( { async = True } )<CR>", opts)
+	buf_set_keymap("n", "<leader>w", "<cmd>w<CR><cmd>!black %<CR><CR><cmd>!isort %<CR><CR>", opts)
 
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Attach to lsp server
-require'lspconfig'.pylsp.setup{
+require'lspconfig'.pyright.setup{
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
-    configurationSources = {"flake8"},
-    plugins = {
-      pycodestyle = {enabled = false},
-      mccabe = {enabled = false},
-      pyflakes = {enabled = false},
-      flake8 = {enabled = true}
+    python = {
+      analysis = {
+        typeCheckingMode = "off"
+      }
     }
   }
 }
