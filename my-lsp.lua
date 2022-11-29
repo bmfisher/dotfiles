@@ -36,6 +36,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', 'td', '<cmd>Telescope diagnostics<CR>', opts)
 	-- buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format( { async = True } )<CR>", opts)
+	buf_set_keymap("n", "<leader>w", "<cmd>lua vim.lsp.buf.format( { async = False } )<CR><cmd>w<CR>", opts)
 
 end
 
