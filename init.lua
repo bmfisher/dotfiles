@@ -4,6 +4,7 @@ vim.g.netrw_browser_split = 2
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.NERDTreeShowHidden = 1
+vim.g.isort_command = 'isort'
 
 -- Vim options
 vim.opt.errorbells = false
