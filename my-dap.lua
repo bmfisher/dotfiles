@@ -51,6 +51,7 @@ local dap = require('dap')
     },
   }
   dap.defaults.fallback.focus_terminal = true
+  dap.defaults.fallback.exception_breakpoints = {}
 
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
