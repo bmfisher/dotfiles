@@ -89,6 +89,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 ]])
