@@ -3,7 +3,7 @@ local dap = require('dap')
   dap.adapters.python = {
     type = 'executable';
     cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
-    command = '/Users/brandonfisher/dev/lb_venv/bin/python';
+    command = 'python';
     args = { '-m', 'debugpy.adapter' };
   }
   dap.configurations.python = {
@@ -12,10 +12,9 @@ local dap = require('dap')
       request = 'launch';
       name = 'python debug server';
       console = 'integratedTerminal';
-      python = '/Users/brandonfisher/dev/lb_venv/bin/python';
       cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
       program = vim.fn.getcwd() .. '/manage.py';
-      args = { 'runserver', '--settings=etsadmin.settings.local', '--noreload' };
+      args = { 'runserver', '--settings=etsadmin.settings.local.base', '--noreload' };
       justMyCode = 'false';
     },
     {
@@ -23,16 +22,15 @@ local dap = require('dap')
       request = 'launch';
       name = 'python debug tests';
       console = 'integratedTerminal';
-      python = '/Users/brandonfisher/dev/lb_venv/bin/python';
       cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
       program = vim.fn.getcwd() .. '/manage.py';
       args = function()
         local module = vim.ui.input({ prompt = 'Enter the module to test: ' }, function(input) vim.g.test_module = tostring(input) end)
         test_module = vim.g.test_module
         if test_module == "all" then
-          test_args = {'test', '--settings=etsadmin.settings.test', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--parallel', '--keepdb'}
+          test_args = {'test', '--settings=etsadmin.settings.test.base', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--parallel', '--keepdb'}
         else
-          test_args = {'test', vim.g.test_module, '--settings=etsadmin.settings.test', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--keepdb'}
+          test_args = {'test', vim.g.test_module, '--settings=etsadmin.settings.test.base', '--exclude-tag=haskell', '--exclude-tag=selenium', '--exclude-tag=celery', '--keepdb'}
         end
         return test_args
       end;
@@ -43,7 +41,6 @@ local dap = require('dap')
       request = 'launch';
       name = 'python django shell';
       console = 'integratedTerminal';
-      python = '/Users/brandonfisher/dev/lb_venv/bin/python';
       cwd = '/Users/brandonfisher/dev/ets/etsadmin/etsadmin';
       program = vim.fn.getcwd() .. '/manage.py';
       args = { 'shell', '--settings=etsadmin.settings.local' };
@@ -123,3 +120,5 @@ vim.api.nvim_set_keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR
 vim.api.nvim_set_keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", opts)
 
 vim.api.nvim_set_keymap("n", "<leader>db", "<cmd>lua require'dapui'.open()<CR> <cmd>lua require'dap'.continue()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dc", "<cmd>lua require'dapui'.close()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dt", "<cmd>lua require'dap'.close()<CR>", opts)

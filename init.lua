@@ -90,6 +90,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'tpope/vim-fugitive'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 call plug#end()
 ]])
@@ -98,6 +100,9 @@ require('my-treesitter')
 require('my-lsp')
 require('my-nvim-cmp')
 require('my-dap')
+require('my-web-devicons')
+-- require('lualine').setup()
+
 
 
 
